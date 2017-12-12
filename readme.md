@@ -1,10 +1,16 @@
-## How install
+## How install Backend
 
 - composer install
-- key:generate
-- jwt:secret
-- migrate
-- db:seed
+- php artisan key:generate
+- php artisan jwt:secret
+- php artisan migrate
+- php artisan db:seed
+
+## How install Frontend
+
+- cd /public/html
+- npm install
+- npm run dev
 
 ## About Laravel
 
