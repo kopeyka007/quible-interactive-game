@@ -1,0 +1,490 @@
+#root {
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#row {
+    width: 100%;
+    min-width: 768px;
+    min-height: calc(100vh - 269px); /* Subtract heights of nav and footer */
+    margin: 0;
+    display: table;
+    overflow: scroll;
+}
+
+.cancelRoot {
+    overflow: hidden;
+    background: #fff;
+    min-height: calc(100vh - 269px); /* Subtract heights of nav and footer */
+    background-image: url('/media/v2_img/account/cancel_bg.jpg');
+    background-repeat: no-repeat;
+    background-color: rgba(255,255,255,0.6);
+    -webkit-box-shadow: inset 0px 2px 13px 4px rgba(0,0,0,0.1);
+            box-shadow: inset 0px 2px 13px 4px rgba(0,0,0,0.1);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+/*#cancelHeader {
+    background-image: url(/img/app/onboarding/wave_qrtr.svg)!important;
+    background-repeat: repeat-x;
+    width: 100%;
+    position: absolute;
+    top: -140px;
+    height: 232.5px;
+    padding: 50px 0 0;
+    margin: 0;
+}*/
+
+#leftPanel {
+    width: 250px;
+    display: table-cell;
+    border-right: 1px solid #e8e9ea;
+    background-color: #f1f2f2;
+}
+.leftPanelFixed {
+    position: fixed;
+    top: 165px;
+    width: 250px;
+    overflow-y: visible;
+}
+
+#pageContent {
+    display: table-cell;
+    padding: 40px 85px 0 0;
+    /*padding: 48px 64px 0;*/
+}
+
+#contentLeft,
+#contentCenter {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+#contentLeft {
+    padding-left: 20px;
+    min-height: calc(100vh - 309px);
+}
+#contentCenter {
+    text-align: center;
+}
+.title {
+    color: #2d95ec;
+    font-size: 28px;
+    font-weight: 400;
+}
+.titleSmall {
+    color: #2d95ec;
+    font-size: 26px;
+    line-height: 40px;
+}
+
+#cardsList {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+#cardsList li {
+    display: inline-block;
+}
+
+#bottomContent {
+    margin-bottom: 100px;
+}
+#bottomContent h2 {
+    color: #2d95ec;
+    font-size: 36px;
+    font-weight: 400;
+}
+
+#credit {
+    margin-bottom: 30px;
+    color: #a7a9ac;
+    font-size: 12px;
+}
+#creditImage {
+    width: 216px;
+    height: 55px;
+    margin: 0 auto;
+    background: url('/media/v2_img/account/PaymentMethod.png') no-repeat;
+    background-size: contain;
+}
+
+#starsImage {
+    height: 40px;
+    background: url('/media/v2_img/account/Stars.svg') center center / 250px no-repeat;
+    background-size: contain;
+}
+
+#companiesImage {
+    width: 100%;
+    height: 303px;
+    max-width: 756px;
+    margin: 0 auto;
+    background: url('/media/v2_img/account/Logos.png') no-repeat;
+    background-size: contain;
+}
+
+.subscriptionBlock {
+    margin-bottom: 40px;
+}
+.caps {
+    text-transform: capitalize;
+}
+#subscriptionDetails table {
+    margin-top: 20px;
+}
+#subscriptionDetails tr {
+    height: 40px;
+}
+#subscriptionDetails th {
+    width: 210px;
+}
+#addMemberList {
+    margin: 0;
+    padding: 5px 0 0 0;
+    list-style-type: none;
+}
+#addMemberList li {
+    display: inline-block;
+    margin-right: 10px;
+}
+#addMemberInput {
+    width: 60px;
+    height: 30px;
+    padding: 0 10px;
+    border: 1px solid #a7a9ac;
+}
+#addMemberInput:focus {
+    outline: none;
+    border-color: #2d95ec;
+}
+#addMemberButton {
+    width: 115px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.05em;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #1bc138;
+    border-top: 1px solid #1bc138;
+    border-radius: 100px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+#addMemberButton:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0 7px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 7px 10px rgba(0, 0, 0, 0.3);
+}
+
+#businessUpgrade {
+    background: url('/media/v2_img/account/rocket.png') no-repeat;
+    background-size: contain;
+    background-position-x: 130px;
+}
+#businessUpgrade p {
+    padding: 5px 0;
+    font-weight: bold;
+}
+
+#creditCardBox {
+    margin-top: 10px;
+}
+
+#cancelSubscriptionButton {
+    width: 230px;
+    margin-top: 5px;
+    padding: 7px 0;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid #a7a9ac;
+    border-radius: 16px;
+}
+
+#cancelSubscriptionButton:hover {
+    cursor: pointer;
+    background-color: #f1f2f2;
+}
+
+#reactivateSubscriptionButton {
+    width: 160px;
+    margin-top: 5px;
+    padding: 7px 0;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background-color: #1bc138;
+    border-top: 1px solid #1bc138;
+    border-radius: 16px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+#reactivateSubscriptionButton:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0 7px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 7px 10px rgba(0, 0, 0, 0.3);
+}
+
+.errorMessage {
+    text-align: center;
+    padding-top: 25vh;
+    margin-top: 40px;
+}
+
+.clickCursor {
+    cursor: pointer;
+}
+.clickCursor:hover {
+    text-decoration: none;
+}
+#loadingScreen {
+    position: fixed;
+    top: 65;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 269px);
+    background-color: #fff;
+    z-index: 10;
+}
+#pendingScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.yearlyUpgradeButton {
+    display: inline-block;
+    margin-left: 30px;
+    padding: 7px 25px;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 18px;
+    color: white;
+    background-color: #ff9a16;
+    border: none;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+.yearlyUpgradeButton:hover {
+    -webkit-box-shadow: 0 7px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 7px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal Content Styles */
+.modalTitle {
+    margin: 20px 0 10px 0;
+    font-size: 20px;
+    font-weight: 400;
+}
+.modalText {
+    margin-bottom: 30px;
+}
+.modalButtonContainer {
+    float: right;
+}
+.modalButton {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 7px 35px;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid #a7a9ac;
+    border-radius: 18px;
+}
+.modalButton:hover {
+    cursor: pointer;
+}
+.modalConfirmButton:hover {
+    background-color: #f1f2f2;
+}
+.modalOrangeButton {
+    color: white;
+    background-color: #ff9a16;
+    border: none;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+.modalOrangeButton:hover {
+    -webkit-box-shadow: 0 7px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 7px 10px rgba(0, 0, 0, 0.3);
+}
+.modalNoButton {
+    color: #fff;
+    background-color: #666;
+    border-color: #666;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+.modalNoButton:hover {
+    -webkit-box-shadow: 0 7px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 7px 10px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 1199px) {
+    #pageContent {
+        padding-right: calc((100vw - 970px) / 2);
+    }
+}
+@media (max-width: 991px) {
+    #pageContent {
+        padding-right: 0;
+    }
+    #companiesImage {
+        width: 70vw;
+        height: 28vw;
+    }
+}
+@media (min-width: 769px) {
+    #contentLeft {
+        width: 95%;
+    }
+    .hideDesktop {
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+    #root {
+        overflow: initial;
+    }
+    #row {
+        min-width: 0;
+    }
+
+    #leftPanel {
+        display: block;
+        width: 100%;
+        border: none;
+        background-color: transparent;
+    }
+    .leftPanelFixed {
+        position: relative;
+        display: table;
+        top: 0;
+        width: 100%;
+        padding: 0;
+    }
+    .yearlyUpgradeButton {
+        margin-top: 5px;
+        margin-left: 0px;
+    }
+
+    #pageContent {
+        display: block;
+    }
+
+    #bottomContent h2 {
+        font-size: 22px;
+    }
+    #credit {
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+    #creditImage {
+        width: 140px;
+        height: 55px;
+    }
+    #starsImage {
+        height: 25px;
+    }
+    #companiesImage {
+        width: calc(100vw - 30px);
+        height: 40vw;
+    }
+
+    .hideMobile {
+        display: none;
+    }
+
+    .errorMessage {
+        margin-top: 0;
+    }
+}
+
+/* From http://tobiasahlin.com/spinkit/ (slightly edited) */
+.spinner,
+.pendingSpinner {
+    margin: 0 auto;
+    width: 70px;
+    text-align: center;
+    line-height: calc(100vh - 269px);
+}
+.pendingSpinner {
+    line-height: 100vh;
+}
+
+.spinner > div,
+.pendingSpinner > div {
+    width: 18px;
+    height: 18px;
+    background-color: #2d95ec;
+
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+.pendingSpinner > div {
+    background-color: #fff;
+}
+
+.spinner .bounce1,
+.pendingSpinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.spinner .bounce2,
+.pendingSpinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    } 40% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}
