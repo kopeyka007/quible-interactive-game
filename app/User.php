@@ -49,4 +49,11 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    public function friends()
+    {
+        return $this->belongsToMany("App\User","user_friends", "user_id","friend_id");
+    }
+
+
 }
