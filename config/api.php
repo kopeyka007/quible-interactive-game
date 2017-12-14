@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'domain' => env('API_DOMAIN', 'quibble.dev'),
+    'domain' => env('API_DOMAIN', 'quibble.loc'),
 
     /*
     |--------------------------------------------------------------------------
