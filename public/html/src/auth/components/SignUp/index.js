@@ -1,33 +1,29 @@
 import React from 'react';
 import styles from './styles.css';
 
+import {TextInput} from 'ui/components';
+
 export default class SignUp extends React.Component {
 
     static displayName = 'SignUp';
 
-    static propTypes = {
-        width: React.PropTypes.number,
-        height: React.PropTypes.number,
-        value: React.PropTypes.string,
-        disabled: React.PropTypes.bool,
-        onClick: React.PropTypes.func
-    };
-
-    constructor(props) {
-        super(props);
+    state = {
+        value : ''
     }
 
-    handleClick = (e) => {
-        this.props.onClick();
+    onChange = (value) => {
+        this.setState({value : value});
     }
-
 
     render() {
-        const {width, height} = this.props;
+        const {value} = this.props;
+
         return (
-            <button type="button" disabled={this.props.disabled} className={this.props.className + ' ' + styles[this.props.disabled ? 'disabled' : 'enabled']} value={this.props.value} onClick={() => this.props.onClick()} >
-                text
-            </button>
+            <div>
+                <TextInput 
+                    value={this.state.value}
+                    onChange={this.onChange}/>
+            </div>
         );
     }
 }
