@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', function ($api) {
     $api->post('authenticate', 'App\Http\Controllers\AuthController@authenticate');
+    $api->post('get_friends', 'App\Http\Controllers\UsersController@get_friends');
 });
 
 // $api->version('v1', ['middleware' => 'api.auth'], function ($api) {
