@@ -18,7 +18,11 @@ $api->version('v1', function ($api) {
     $api->post('authenticate', 'App\Http\Controllers\AuthController@authenticate');
 });
 
-$api->version('v1', ['middleware' => 'api.auth'], function ($api) {
+// $api->version('v1', ['middleware' => 'api.auth'], function ($api) {
+//     $api->resource('words', 'App\Http\Controllers\WordsController');
+//     $api->resource('categories', 'App\Http\Controllers\CategoryController');
+// });
+$api->version('v1', function ($api) {
     $api->resource('words', 'App\Http\Controllers\WordsController');
     $api->resource('categories', 'App\Http\Controllers\CategoryController');
 });

@@ -14,7 +14,7 @@ class WordsController extends Controller
      */
     public function index()
     {
-        return Word::with("category")->get();
+        return Word::with("category")->paginate(25);
     }
 
     /**
