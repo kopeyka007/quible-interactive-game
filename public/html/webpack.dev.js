@@ -6,6 +6,7 @@ module.exports = {
     entry: {
         settings: ['babel-polyfill', path.join(__dirname, 'src/settings/main.js')],
         auth: ['babel-polyfill', path.join(__dirname, 'src/auth/main.js')],
+        games: ['babel-polyfill', path.join(__dirname, 'src/games/main.js')],
         vendors: ['react', 'react-dom', 'lodash', 'whatwg-fetch']
     },
     output: {
