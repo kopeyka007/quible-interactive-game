@@ -15,12 +15,14 @@ require('./bootstrap');
  */
 
 import {Pagination} from 'vue-pagination-2';
-import modal from 'vue-strap/src/Modal'
+import modal from 'vue-strap/src/Modal';
+import Multiselect from 'vue-multiselect';
 
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 
+Vue.component('multiselect', Multiselect);
 Vue.component('App', require('./App.vue'));
 Vue.component('pagination', Pagination);
 Vue.component('modal', modal);

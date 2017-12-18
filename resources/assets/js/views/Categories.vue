@@ -2,7 +2,7 @@
     <div class="wrapper">
         <modal title="Modal title" large v-model="largeModal" @ok="submit" effect="fade/zoom">
             <div slot="modal-header" class="modal-header">
-                <h4 class="modal-title">Word</h4>
+                <h4 class="modal-title">Category</h4>
             </div>
            <div class="row">
                 <div class="col-md-12">
@@ -14,26 +14,6 @@
                             </div>
                         </div>
                     </div><!--/.row-->
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label for="level">Level</label>
-                                <input type="number" class="form-control" id="level" v-model="item.level">
-                            </div>
-                        </div>
-                    </div><!--/.row-->
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <multiselect 
-                                v-model="item.categories"
-                                v-bind:options="categories"
-                                track-by="name"
-                                v-bind:multiple="true"
-                                v-bind:custom-label="customLabel"
-                                >
-                            </multiselect>
-                        </div>
-                    </div>
                </div>
            </div>
         </modal>
@@ -48,7 +28,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <button @click="largeModal = true; item = {}"><i class="fa fa-plus fa-2x"></i></button> Words
+                            <button @click="largeModal = true; item = {}"><i class="fa fa-plus fa-2x"></i></button> Categories
                         </div>
                         <div class="card-block">
                             <table class="table table-striped">
@@ -56,22 +36,16 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>Name</th>
-                                        <th>Level</th>
-                                        <th>Categories</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="word in words">
-                                        <td>{{word.id}}</td>
-                                        <td>{{word.name}}</td>
-                                        <td>{{word.level}}</td>
+                                    <tr v-for="category in categories">
+                                        <td>{{category.id}}</td>
+                                        <td>{{category.name}}</td>
                                         <td>
-                                            <span v-for="category in word.categories">{{category.name}}, </span>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-primary" @click="largeModal = true; item = word">Edit</button>
-                                            <button type="button" class="btn btn-danger" @click="dangerModal = true; item = word">Delete</button>
+                                            <button type="button" class="btn btn-primary" @click="largeModal = true; item = category">Edit</button>
+                                            <button type="button" class="btn btn-danger" @click="dangerModal = true; item = category">Delete</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -91,7 +65,6 @@ export default {
     name: 'tables',
     data() {
         return {
-            words: [],
             total: 0,
             largeModal: false,
             dangerModal: false,
@@ -102,38 +75,29 @@ export default {
     },
     created() {
         let data = this;
-        axios.get('/api/words').then(function(res){
-            data.words = res.data.data;
-            data.total = res.data.total;
-        });
         axios.get('/api/categories').then(function(res){
-            data.categories = res.data;
+            data.categories = res.data.data;
+            data.total = res.data.total;
         });
     },
     methods: {
         myCallback(page){
             let data = this;
-            axios.get('/api/words?page=' + page).then(function(res){
-                data.words = res.data.data;
+            axios.get('/api/categories?page=' + page).then(function(res){
+                data.categories = res.data.data;
                 data.total = res.data.total;
                 data.page = page;
             });
         },
         submit(){
             let data = this;
-            let index;
-            let tmpArr = [];
-            for(index in data.item.categories){
-                tmpArr.push(data.item.categories[index].id);
-            }
-            data.item.categories = tmpArr;
             if(data.item.id){
-                axios.put('/api/words/' + data.item.id, data.item).then(function(res){
+                axios.put('/api/categories/' + data.item.id, data.item).then(function(res){
                     data.largeModal = false;
                     data.myCallback(data.page);
                 });
             } else{
-                axios.post('/api/words', data.item).then(function(res){
+                axios.post('/api/categories', data.item).then(function(res){
                     data.largeModal = false;
                     data.myCallback(data.page);
                 });
@@ -142,7 +106,7 @@ export default {
         },
         deleteWord(){
             let data = this;
-            axios.delete('/api/words/' + data.item.id)
+            axios.delete('/api/categories/' + data.item.id)
                 .then(function(res){
                     data.dangerModal = false;
                     data.myCallback(data.page);
