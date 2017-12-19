@@ -107,7 +107,7 @@ export default {
             data.total = res.data.total;
         });
         axios.get('/api/categories').then(function(res){
-            data.categories = res.data;
+            data.categories = res.data.data;
         });
     },
     methods: {

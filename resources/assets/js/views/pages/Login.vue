@@ -10,15 +10,15 @@
                 <p class="text-muted">Sign In to your account</p>
                 <div class="input-group mb-1">
                   <span class="input-group-addon"><i class="icon-user"></i></span>
-                  <input type="text" class="form-control" placeholder="Username">
+                  <input v-model="email" type="text" class="form-control" placeholder="Username">
                 </div>
                 <div class="input-group mb-2">
                   <span class="input-group-addon"><i class="icon-lock"></i></span>
-                  <input type="password" class="form-control" placeholder="Password">
+                  <input v-model="password" type="password" class="form-control" placeholder="Password">
                 </div>
                 <div class="row">
                   <div class="col-6">
-                    <button type="button" class="btn btn-primary px-2">Login</button>
+                    <button type="button" class="btn btn-primary px-2" v-on:click="signin">Login</button>
                   </div>
                   <div class="col-6 text-right">
                     <button type="button" class="btn btn-link px-0">Forgot password?</button>
@@ -44,6 +44,22 @@
 
 <script>
 export default {
-  name: 'Login'
+    data() {
+        return {
+            email: null,
+            password: null,
+            error: false
+        }
+    },
+    methods: {
+        signin() {
+            let data = this;
+            this.$auth.login({
+                data: {email: this.email, password: this.password}
+            }).catch(function(error) {
+                data.error = 'E-mail or password is incorrect';
+            });
+        }
+    }
 }
 </script>

@@ -21,6 +21,23 @@ import Multiselect from 'vue-multiselect';
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
+import axios from 'axios';
+import VueAxios from 'vue-axios'
+import VueAuth from '@websanova/vue-auth'
+
+Vue.router = router;
+
+Vue.use(VueAxios, axios)
+Vue.use(VueAuth, {
+    auth: require('@websanova/vue-auth/drivers/auth/bearer.js'),
+    http: require('@websanova/vue-auth/drivers/http/axios.1.x.js'),
+    router: require('@websanova/vue-auth/drivers/router/vue-router.2.x.js'),
+    rolesVar: 'role',
+    loginData: {url: 'api/auth/login', method: 'POST', redirect: '/'},
+    logoutData: {url: 'api/auth/logout', method: 'POST', redirect: 'login', authType: 'bearer'},
+    fetchData: {url: 'api/auth/account', method: 'GET', authType: 'bearer'},
+    refreshData: {url: 'api/auth/refresh', method: 'POST'}
+});
 
 Vue.component('multiselect', Multiselect);
 Vue.component('App', require('./App.vue'));

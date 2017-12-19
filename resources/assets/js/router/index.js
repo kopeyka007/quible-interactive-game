@@ -17,57 +17,64 @@ import Register from '../views/pages/Register';
 Vue.use(Router);
 
 export default new Router({
-  mode: 'hash', // hash or hash = Demo is living in GitHub.io, so required!
-  linkActiveClass: 'open active',
-  scrollBehavior: () => ({ y: 0 }),
-  routes: [
-    {
-      path: '/',
-      redirect: '/words',
-      name: 'Home',
-      component: Full,
-      children: [
+    mode: 'hash', // hash or hash = Demo is living in GitHub.io, so required!
+    linkActiveClass: 'open active',
+    scrollBehavior: () => ({ y: 0 }),
+    routes: [
         {
-          path: 'words',
-          name: 'Words',
-          component: Words
+            path: '/login',
+            name: 'login',
+            component: Login,
+            meta: {auth: false}
         },
         {
-          path: 'categories',
-          name: 'Categories',
-          component: Categories
-        },
-      ]
-    },
-    {
-      path: '/pages',
-      redirect: '/pages/p404',
-      name: 'Pages',
-      component: {
-        render (c) { return c('router-view'); }
-      },
-      children: [
-        {
-          path: '404',
-          name: 'Page404',
-          component: Page404
-        },
-        {
-          path: '500',
-          name: 'Page500',
-          component: Page500
+            path: '/',
+            redirect: '/words',
+            name: 'Home',
+            component: Full,
+            meta: {auth: true},
+            children: [
+                {
+                    path: 'words',
+                    name: 'Words',
+                    component: Words
+                },
+                {
+                    path: 'categories',
+                    name: 'Categories',
+                    component: Categories
+                },
+            ]
         },
         {
-          path: 'login',
-          name: 'Login',
-          component: Login
-        },
-        {
-          path: 'register',
-          name: 'Register',
-          component: Register
+            path: '/pages',
+            redirect: '/pages/p404',
+            name: 'Pages',
+            component: {
+              render (c) { return c('router-view'); }
+            },
+            children: [
+                {
+                    path: '404',
+                    name: 'Page404',
+                    component: Page404
+                },
+                {
+                    path: '500',
+                    name: 'Page500',
+                    component: Page500
+                },
+                {
+                    path: 'login',
+                    name: 'Login',
+                    component: Login
+                },
+                {
+                    path: 'register',
+                    name: 'Register',
+                    component: Register
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 });
