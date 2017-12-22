@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use Dingo\Api\Routing\Helpers;
 use Illuminate\Http\Request;
 use App\Category;
 
 class CategoryController extends Controller
 {
-/**
+    use Helpers;
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return Category::all();
+        return Category::paginate(25);
     }
 
     /**
@@ -25,11 +27,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category;
-        $category->name = $request->name;
-        $category->category_id = $request->category_id;
-        $category->level = $request->level;
-        $category->save();
+        $input = $request->all();
+        
+        Category::create($input);
+
+        return $this->response->created();
     }
 
     /**
@@ -52,11 +54,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $name =  $request->get('name', '');        
+
         $category = Category::find($id);
-        $category->name = $request->name;
-        $category->category_id = $request->category_id;
-        $category->level = $request->level;
+        $category->name = $name;
         $category->update();
+
+        return Response()->json(['updated'], 200);
     }
 
     /**
@@ -67,6 +71,11 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::find($id)->delete();
+        $category = Category::find($id);
+        
+        $category->words()->detach();
+        $category->delete();
+
+        return Response()->json([], 204);
     }
 }
