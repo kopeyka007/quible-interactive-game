@@ -1,9 +1,8 @@
-import styles from './settings.css';
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import _ from 'lodash';
 import { connect } from 'react-redux';
-import actions from 'settings/actions';
+import actions from 'actions';
 import { bindActionCreators } from 'redux';
 import { BrowserRouter } from 'react-router';
 
@@ -18,7 +17,7 @@ export default class Layout extends React.Component {
 
     render() {
         return (
-            <div id={styles.root}>
+            <div>
                 hello world
             </div>
         );

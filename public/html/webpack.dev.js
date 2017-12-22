@@ -4,14 +4,22 @@ var autoprefixer = require('autoprefixer');
 
 module.exports = {
     entry: {
-        settings: ['babel-polyfill', path.join(__dirname, 'src/settings/main.js')],
-        auth: ['babel-polyfill', path.join(__dirname, 'src/auth/main.js')],
-        games: ['babel-polyfill', path.join(__dirname, 'src/games/main.js')],
-        vendors: ['react', 'react-dom', 'lodash', 'whatwg-fetch']
+        app: ['babel-polyfill', path.join(__dirname, 'src/main.js')],
+        vendor: [
+            'react',
+            'react-dom',
+            'react-redux',
+            'redux',
+            'redux-thunk',
+            'color',
+            'lodash',
+            'immutable',
+            'whatwg-fetch'
+        ]
     },
     output: {
-        path: path.join(__dirname, '/dist/'),
-        filename: '[name]/js/[name].bundle.js',
+		path: path.join(__dirname, '/dist/'),
+		filename: 'js/[name].bundle.js',
         publicPath: '/'
     },
     module: {
