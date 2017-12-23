@@ -1,25 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { createStore, combineReducers } from 'redux'
-import { Provider } from 'react-redux';
-import { Router, Route } from 'react-router';
-import { createBrowserHistory } from 'history'
-import rootReducer from 'reducers';
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'react-router-redux'
+import { Route } from 'react-router-dom'
+import store, { history } from 'store'
 
-const store = createStore(
-	combineReducers({
-	  ...rootReducer,
-	  routing: routerReducer
-	})
-  )
+import App from './containers/app'
 
-const history = syncHistoryWithStore(createBrowserHistory(), store)
-
-import Layout from 'containers/layout';
-
-ReactDOM.render(<Provider store={store}>
-					<Router history={history}>
-						<Route path="/(:filter)" component={Layout} />
-					</Router>
-				</Provider>, document.getElementById('ReactPage'));
+render(
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <div>
+	  	<App />
+      </div>
+    </ConnectedRouter>
+  </Provider>,
+  document.getElementById('ReactPage')
+)
